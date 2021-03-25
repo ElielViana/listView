@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
 
 class RestApi {
-  Future search(value) async {
-    Response response;
-    Dio dio = new Dio();
+  Dio dio = Dio();
+  Response response;
+
+  Future<dynamic> universityResearch(String universityName) async {
     response =
-        await dio.get("http://universities.hipolabs.com/search?name=" + value);
+        await dio.get("http://universities.hipolabs.com" + universityName);
     return response.data;
   }
 }
